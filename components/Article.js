@@ -1,6 +1,7 @@
 // This is the data we will be using to create our articles. Look at it, then proceed to line 93.
 // OPTIONAL: if you're feeling adventurous, try to make this data an export from a different module, and import it here.
 // You can read about ES6 modules here: https://exploringjs.com/es6/ch_modules.html#sec_basics-of-es6-modules
+import { gsap } from "gsap";
 const data = [
   {
     title: 'Lambda School Students: "We\'re the best!"',
@@ -159,7 +160,7 @@ function articleMaker(article){
 
     expandButton.textContent = articleContainer.classList.contains("article-open") ? "click to close": "click to expand";
     
-
+    
   })
   return articleContainer
 }
