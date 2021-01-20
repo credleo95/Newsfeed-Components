@@ -1,7 +1,6 @@
 // This is the data we will be using to create our articles. Look at it, then proceed to line 93.
 // OPTIONAL: if you're feeling adventurous, try to make this data an export from a different module, and import it here.
 // You can read about ES6 modules here: https://exploringjs.com/es6/ch_modules.html#sec_basics-of-es6-modules
-import { gsap } from "gsap";
 const data = [
   {
     title: 'Lambda School Students: "We\'re the best!"',
@@ -117,7 +116,7 @@ const data = [
 */
 
 
-let article = {title: "Some title", date: "Dates are nice",paragraph1:"This is the first paragraph", paragraph2: "This is the second", paragraph3: "This is the third."}
+let article = {title: "Test title", date: "Test Date",firstParagraph:"This is test paragraph", secondParagraph: "This is the second", thirdParagraph: "This is the third."}
 
 
 
@@ -139,26 +138,23 @@ function articleMaker(article){
   const paragraph1 = document.createElement("p")
   paragraph1.textContent = article.firstParagraph
 
-  console.log(article.firstParagraph);
-
-
   const paragraph2 = document.createElement("p")
   paragraph2.textContent = article.secondParagraph
 
   const paragraph3 = document.createElement("p")
   paragraph3.textContent = article.thirdParagraph
 
-  const expandButton = document.createElement("span")
-  expandButton.classList.add("expandButton");
+  const articleSpan = document.createElement("span")
+  articleSpan.classList.add("expandButton");
 
-  articleContainer.append(paragraph1, paragraph2, paragraph3, expandButton)
+  articleContainer.append(paragraph1, paragraph2, paragraph3, articleSpan);
 
-  articleContainer.textContent = "click to expand"
+  articleSpan.textContent = "click to expand"
 
-  expandButton.addEventListener("click", () => { 
+  articleSpan.addEventListener("click", () => { 
     articleContainer.classList.toggle("article-open");
 
-    expandButton.textContent = articleContainer.classList.contains("article-open") ? "click to close": "click to expand";
+    articleSpan.textContent = articleContainer.classList.contains("article-open") ? "click to close": "click to expand";
     
     
   })
