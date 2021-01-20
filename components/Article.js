@@ -114,3 +114,58 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+
+let article = {title: "Some title", date: "Dates are nice",paragraph1:"This is the first paragraph", paragraph2: "This is the second", paragraph3: "This is the third."}
+
+
+
+function articleMaker(article){
+  const articleContainer = document.createElement("div");
+  articleContainer.classList.add("article");
+
+  const articleTitle = document.createElement("h2");
+  articleTitle.textContent = article.title
+  articleContainer.appendChild(articleTitle);
+
+  const articleDate = document.createElement("p");
+  articleDate.classList.add("date");  
+  articleDate.textContent = article.date
+  articleContainer.appendChild(articleDate);
+
+  console.log(articleDate);
+  
+  const paragraph1 = document.createElement("p")
+  paragraph1.textContent = article.firstParagraph
+
+  console.log(article.firstParagraph);
+
+
+  const paragraph2 = document.createElement("p")
+  paragraph2.textContent = article.secondParagraph
+
+  const paragraph3 = document.createElement("p")
+  paragraph3.textContent = article.thirdParagraph
+
+  const expandButton = document.createElement("span")
+  expandButton.classList.add("expandButton");
+
+  articleContainer.append(paragraph1, paragraph2, paragraph3, expandButton)
+
+  articleContainer.textContent = "click to expand"
+
+  expandButton.addEventListener("click", () => { 
+    articleContainer.classList.toggle("article-open");
+
+    expandButton.textContent = articleContainer.classList.contains("article-open") ? "click to close": "click to expand";
+    
+
+  })
+  return articleContainer
+}
+data.unshift(article);
+data.map( item => { 
+  document.querySelector(".articles").appendChild(articleMaker(item))
+})
+
+
